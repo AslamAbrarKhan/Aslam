@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo List</title>
+</head>
+<body>
+	<input type="text" id = "taskInpEle" placeholder="type here"/>
+	<button id = "btnAddEle">ADD</button><br />
+	<ul id="taskUlEle">
+		<li>Eat BreakFast</li>
+		<li>Read Book</li>
+		<li>Play Music</li>
+	</ul>
+	
+</body>
+<script type="text/javascript">
+	var tasks = ['Eat BreakFast', 'Read Book', 'Play Music','have lunch'];
+	for(var i = 0; i < tasks.length; i++){
+		console.log('Element : ' + tasks[i]);
+	}	
+	tasks.push('Drink Coffee');
+	console.log(tasks);
+	console.log(document.getElementById('taskUlEle'));
+	console.log(document.getElementById('button'));
+	console.log(document.getElementById('input'));
+	
+	var taskUlEle = document.getElementById('taskUlEle');
+	var tempUlHtml = '';
+	for (var i = 0; i < tasks.length; i++){
+		tempUlHtml += '<li>' + tasks[i] + '</li>';
+	}
+	taskUlEle.innerHTML = tempUlHtml;
+	console.log(tempUlHtml);
+	
+	var btnAddEle = document.getElementById('btnAddEle');
+	console.log(btnAddEle);
+	
+	/*btnAddEle.addEventListener('Click',function(){
+		console.log(tasks);
+	});*/
+	
+	var taskInpEle = document.getElementById('taskInpEle');
+	console.log(taskInpEle);
+	
+	btnAddEle.addEventListener('click',function(){
+		var item = taskInpEle.value;
+		tasks.push(item);
+		
+		var tempUlHtml = '';
+		for (var i = 0; i < tasks.length; i++){
+		tempUlHtml += '<li>' + tasks[i] + '</li>';
+	}
+		taskUlEle.innerHTML = tempUlHtml;
+	});
+</script>
+</html>
